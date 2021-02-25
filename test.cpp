@@ -3,17 +3,17 @@
 #include "base_factory.hpp"
 #include "base.hpp"
 
-
 TEST(baseFactoryTest, emptyvalue)
 {
     BaseFactory factory;
     char **test = new char*[1];
-    test[0] = new char[1];
+    test[0] = new char[5];
     strcpy(test[0], "");
     Base *base = factory.parse(test, 1);
     EXPECT_EQ(base, nullptr);
     delete [] test[0];
     delete [] test;
+    delete base;
 }
 
 TEST(baseFactoryTest, correctInput)
@@ -21,9 +21,9 @@ TEST(baseFactoryTest, correctInput)
     BaseFactory factory;
     char **test = new char*[4];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "5");
     strcpy(test[2], "+");
@@ -36,19 +36,19 @@ TEST(baseFactoryTest, correctInput)
     delete [] test[2];
     delete [] test[3];
     delete [] test;
+    delete base;
 }
-
 
 TEST(baseFactoryTest, correctInput2)
 {
     BaseFactory factory;
     char **test = new char*[6];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
-    test[4] = new char[2];
-    test[5] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
+    test[4] = new char[5];
+    test[5] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "3");
     strcpy(test[2], "+");
@@ -65,6 +65,7 @@ TEST(baseFactoryTest, correctInput2)
     delete [] test[4];
     delete [] test[5];
     delete [] test;
+    delete base;
 }
 
 TEST(baseFactoryTest, incorrectInput)
@@ -72,9 +73,9 @@ TEST(baseFactoryTest, incorrectInput)
     BaseFactory factory;
     char **test = new char*[4];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "5");
     strcpy(test[2], "");
@@ -86,6 +87,7 @@ TEST(baseFactoryTest, incorrectInput)
     delete [] test[2];
     delete [] test[3];
     delete [] test;
+    delete base;
 }
 
 TEST(baseFactoryTest, incorrectInput2)
@@ -93,9 +95,9 @@ TEST(baseFactoryTest, incorrectInput2)
     BaseFactory factory;
     char **test = new char*[4];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "a");
     strcpy(test[2], "+");
@@ -107,6 +109,7 @@ TEST(baseFactoryTest, incorrectInput2)
     delete [] test[2];
     delete [] test[3];
     delete [] test;
+    delete base;
 }
 
 TEST(baseFactoryTest, correctInput3)
@@ -114,11 +117,11 @@ TEST(baseFactoryTest, correctInput3)
     BaseFactory factory;
     char **test = new char*[6];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
-    test[4] = new char[2];
-    test[5] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
+    test[4] = new char[5];
+    test[5] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "8");
     strcpy(test[2], "-");
@@ -135,6 +138,7 @@ TEST(baseFactoryTest, correctInput3)
     delete [] test[4];
     delete [] test[5];
     delete [] test;
+    delete base;
 }
 
 TEST(baseFactoryTest, correctInput4)
@@ -142,11 +146,11 @@ TEST(baseFactoryTest, correctInput4)
     BaseFactory factory;
     char **test = new char*[6];
     test[0] = new char[5];
-    test[1] = new char[2];
-    test[2] = new char[2];
-    test[3] = new char[2];
-    test[4] = new char[2];
-    test[5] = new char[2];
+    test[1] = new char[5];
+    test[2] = new char[5];
+    test[3] = new char[5];
+    test[4] = new char[5];
+    test[5] = new char[5];
     strcpy(test[0], "Waka");
     strcpy(test[1], "3");
     strcpy(test[2], "**");
@@ -163,6 +167,7 @@ TEST(baseFactoryTest, correctInput4)
     delete [] test[4];
     delete [] test[5];
     delete [] test;
+    delete base;
 }
 
 
